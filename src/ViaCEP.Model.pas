@@ -1,11 +1,14 @@
-unit ViaCEP.Models;
+unit ViaCEP.Model;
 
 interface
 
-uses REST.JSON.Types;
+uses REST.Json.Types;
 
 type
-  TCEPClass = class
+  /// <summary>
+  ///   Class representing the data returned by the ViaCEP API.
+  /// </summary>
+  TViaCEPClass = class
   private
     FLogradouro: string;
     [JSONNameAttribute('ibge')]
@@ -55,68 +58,68 @@ type
     /// <returns>
     ///   Returns an instance of the TCEPClass class.
     /// </returns>
-    class function FromJSONString(const AJSONString: string): TCEPClass;
+    class function FromJSONString(const AJSONString: string): TViaCEPClass;
   end;
 
 implementation
 
-{ TCEPClass }
-
 uses REST.Json;
 
-class function TCEPClass.FromJSONString(const AJSONString: string): TCEPClass;
+{ TViaCEPClass }
+
+class function TViaCEPClass.FromJSONString(const AJSONString: string): TViaCEPClass;
 begin
-  Result := TJson.JsonToObject<TCEPClass>(AJSONString);
+  Result := TJson.JsonToObject<TViaCEPClass>(AJSONString);
 end;
 
-procedure TCEPClass.SetBairro(const Value: string);
+procedure TViaCEPClass.SetBairro(const Value: string);
 begin
   FBairro := Value;
 end;
 
-procedure TCEPClass.SetCEP(const Value: string);
+procedure TViaCEPClass.SetCEP(const Value: string);
 begin
   FCEP := Value;
 end;
 
-procedure TCEPClass.SetComplemento(const Value: string);
+procedure TViaCEPClass.SetComplemento(const Value: string);
 begin
   FComplemento := Value;
 end;
 
-procedure TCEPClass.SetGIA(const Value: string);
+procedure TViaCEPClass.SetGIA(const Value: string);
 begin
   FGIA := Value;
 end;
 
-procedure TCEPClass.SetIBGE(const Value: string);
+procedure TViaCEPClass.SetIBGE(const Value: string);
 begin
   FIBGE := Value;
 end;
 
-procedure TCEPClass.SetLocalidade(const Value: string);
+procedure TViaCEPClass.SetLocalidade(const Value: string);
 begin
   FLocalidade := Value;
 end;
 
-procedure TCEPClass.SetLogradouro(const Value: string);
+procedure TViaCEPClass.SetLogradouro(const Value: string);
 begin
   FLogradouro := Value;
 end;
 
-procedure TCEPClass.SetUF(const Value: string);
+procedure TViaCEPClass.SetUF(const Value: string);
 begin
   FUF := Value;
 end;
 
-procedure TCEPClass.SetUnidade(const Value: string);
+procedure TViaCEPClass.SetUnidade(const Value: string);
 begin
   FUnidade := Value;
 end;
 
-function TCEPClass.ToJSONString: string;
+function TViaCEPClass.ToJSONString: string;
 begin
-  Result := TJson.ObjectToJsonString(Self);
+  Result := TJson.ObjectToJsonString(Self, [joIgnoreEmptyStrings]);
 end;
 
 end.
