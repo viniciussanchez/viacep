@@ -8,7 +8,7 @@
    * [**Boss**](https://github.com/HashLoad/boss) - Gerenciador de dependências para Delphi
  * Possuir as dlls **libeay32.dll** e **ssleay32.dll** na pasta do projeto junto ao executável.
  
-## Instalação utilizando o Boss (Gerenciador de dependências para aplicações Delphi)
+## Instalação utilizando o Boss
 ```
 boss install github.com/viniciussanchez/viacep
 ```
