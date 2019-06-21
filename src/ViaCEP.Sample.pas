@@ -68,6 +68,8 @@ var
 begin
   ViaCEP := TViaCEP.Create;
   CEP := ViaCEP.Get(edtCEPConsultar.Text);
+  if not Assigned(CEP) then
+    Exit;
   try
     edtJSON.Lines.Text := CEP.ToJSONString;
     edtCEP.Text := CEP.CEP;

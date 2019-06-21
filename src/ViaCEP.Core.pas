@@ -54,15 +54,12 @@ const
 var
   LResponse: TStringStream;
 begin
-  if not Self.Validate(ACep) then
-    Exit(TViaCEPClass.Create);
+  Result := nil;
   LResponse := TStringStream.Create;
   try
     FIdHTTP.Get(Format(URL, [ACep.Trim]), LResponse);
     if (FIdHTTP.ResponseCode = 200) and (not (LResponse.DataString).Equals(INVALID_CEP)) then
-      Result := TJson.JsonToObject<TViaCEPClass>(UTF8ToString(PAnsiChar(AnsiString(LResponse.DataString))))
-    else
-      Result := TViaCEPClass.Create;
+      Result := TJson.JsonToObject<TViaCEPClass>(UTF8ToString(PAnsiChar(AnsiString(LResponse.DataString))));
   finally
     LResponse.Free;
   end;
