@@ -1,4 +1,4 @@
-unit ViaCEP.Sample;
+unit ViaCEP.Samples;
 
 interface
 

@@ -5,7 +5,7 @@ uses
   ViaCEP.Core in 'src\ViaCEP.Core.pas',
   ViaCEP.Intf in 'src\ViaCEP.Intf.pas',
   ViaCEP.Model in 'src\ViaCEP.Model.pas',
-  ViaCEP.Sample in 'src\ViaCEP.Sample.pas' {FrmMain};
+  ViaCEP.Samples in 'samples\ViaCEP.Samples.pas' {FrmMain};
 
 {$R *.res}
 

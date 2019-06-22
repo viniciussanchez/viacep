@@ -101,7 +101,7 @@
         <DCCReference Include="src\ViaCEP.Core.pas"/>
         <DCCReference Include="src\ViaCEP.Intf.pas"/>
         <DCCReference Include="src\ViaCEP.Model.pas"/>
-        <DCCReference Include="src\ViaCEP.Sample.pas">
+        <DCCReference Include="samples\ViaCEP.Samples.pas">
             <Form>FrmMain</Form>
             <FormType>dfm</FormType>
         </DCCReference>
