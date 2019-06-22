@@ -98,10 +98,10 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="src\ViaCEP.Core.pas"/>
-        <DCCReference Include="src\ViaCEP.Intf.pas"/>
-        <DCCReference Include="src\ViaCEP.Model.pas"/>
-        <DCCReference Include="samples\ViaCEP.Samples.pas">
+        <DCCReference Include="..\src\ViaCEP.Core.pas"/>
+        <DCCReference Include="..\src\ViaCEP.Intf.pas"/>
+        <DCCReference Include="..\src\ViaCEP.Model.pas"/>
+        <DCCReference Include="src\ViaCEP.Samples.pas">
             <Form>FrmMain</Form>
             <FormType>dfm</FormType>
         </DCCReference>
