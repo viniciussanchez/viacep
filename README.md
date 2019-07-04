@@ -21,7 +21,7 @@ Adicione a seguinte pasta no seu projeto em *Project > Options > Resource Compil
 
 ## Começando
 Você vai precisar fazer o uses das seguintes units: `ViaCEP.Intf`, `ViaCEP.Core`, `ViaCEP.Model`
-```
+```pascal
 uses ViaCEP.Intf, ViaCEP.Core, ViaCEP.Model;
 ```
 
@@ -33,7 +33,7 @@ O método de validar se é um CEP válido ou não, apenas certifica-se de que o 
 Quando consultado um CEP de formato válido, porém inexistente, por exemplo: `99999999`, o retorno também será `nil`. Isso significa que o CEP consultado não foi encontrado na base de dados.
 
 Exemplo:
-```
+```pascal
 var
   ViaCEP: IViaCEP;
 begin
@@ -48,7 +48,7 @@ end;
 Vale lembrar que no método acima, não é necessário destruir a instância criada da classe `TViaCEP`, pelo fato de estar utilizando uma `Interface`.
 
 ### Consultando um CEP
-```
+```pascal
 var
   ViaCEP: IViaCEP;
   CEP: TViaCEPClass;
@@ -77,7 +77,7 @@ end;
 
 ### Retorno da consulta no formato JSON
 Após realizar a consulta do CEP, você pode pegar o conteúdo retornado no formato JSON utilizando a método **.ToJSONString** disponível na classe `TViaCEPClass`. Veja o exemplo abaixo, onde é populado um `TMemo` com o conteúdo da consulta:
-```
+```pascal
 var
   CEP: TViaCEPClass;
 begin
