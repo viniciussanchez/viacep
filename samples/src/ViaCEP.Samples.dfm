@@ -453,9 +453,9 @@ object FrmMain: TFrmMain
       object Label7: TLabel
         Left = 471
         Top = 163
-        Width = 44
+        Width = 24
         Height = 13
-        Caption = 'Unidade'
+        Caption = 'DDD'
       end
       object Label8: TLabel
         Left = 514
@@ -591,7 +591,7 @@ object FrmMain: TFrmMain
         ParentFont = False
         TabOrder = 7
       end
-      object edtUnidade: TEdit
+      object edtDDD: TEdit
         Left = 471
         Top = 182
         Width = 291

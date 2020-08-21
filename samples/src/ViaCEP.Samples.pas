@@ -29,7 +29,7 @@ type
     edtUF: TEdit;
     Label6: TLabel;
     Label7: TLabel;
-    edtUnidade: TEdit;
+    edtDDD: TEdit;
     edtIBGE: TEdit;
     Label8: TLabel;
     edtGIA: TEdit;
@@ -78,7 +78,7 @@ begin
     edtBairro.Text := CEP.Bairro;
     edtLocalidade.Text := CEP.Localidade;
     edtUF.Text := CEP.UF;
-    edtUnidade.Text := CEP.Unidade;
+    edtDDD.Text := CEP.DDD;
     edtIBGE.Text := CEP.IBGE;
     edtGIA.Text := CEP.GIA;
   finally
