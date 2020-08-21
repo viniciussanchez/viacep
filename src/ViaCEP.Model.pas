@@ -19,10 +19,11 @@ type
     [JSONNameAttribute('cep')]
     FCEP: string;
     FLocalidade: string;
-    FUnidade: string;
     FComplemento: string;
     [JSONNameAttribute('gia')]
     FGIA: string;
+    [JSONNameAttribute('ddd')]
+    FDDD: string;
     procedure SetBairro(const Value: string);
     procedure SetCEP(const Value: string);
     procedure SetComplemento(const Value: string);
@@ -31,7 +32,7 @@ type
     procedure SetLocalidade(const Value: string);
     procedure SetLogradouro(const Value: string);
     procedure SetUF(const Value: string);
-    procedure SetUnidade(const Value: string);
+    procedure SetDDD(const Value: string);
   public
     property CEP: string read FCEP write SetCEP;
     property Logradouro: string read FLogradouro write SetLogradouro;
@@ -39,9 +40,9 @@ type
     property Bairro: string read FBairro write SetBairro;
     property Localidade: string read FLocalidade write SetLocalidade;
     property UF: string read FUF write SetUF;
-    property Unidade: string read FUnidade write SetUnidade;
     property IBGE: string read FIBGE write SetIBGE;
     property GIA: string read FGIA write SetGIA;
+    property DDD: string read FDDD write SetDDD;
     /// <summary>
     ///   Converts the current instance of the TCEPClass class to a JSON in the string format.
     /// </summary>
@@ -87,6 +88,11 @@ begin
   FComplemento := Value;
 end;
 
+procedure TViaCEPClass.SetDDD(const Value: string);
+begin
+  FDDD := Value;
+end;
+
 procedure TViaCEPClass.SetGIA(const Value: string);
 begin
   FGIA := Value;
@@ -110,11 +116,6 @@ end;
 procedure TViaCEPClass.SetUF(const Value: string);
 begin
   FUF := Value;
-end;
-
-procedure TViaCEPClass.SetUnidade(const Value: string);
-begin
-  FUnidade := Value;
 end;
 
 function TViaCEPClass.ToJSONString: string;
