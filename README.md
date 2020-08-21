@@ -66,7 +66,7 @@ begin
     edtBairro.Text := CEP.Bairro;
     edtLocalidade.Text := CEP.Localidade;
     edtUF.Text := CEP.UF;
-    edtUnidade.Text := CEP.Unidade;
+    edtDDD.Text := CEP.DDD;
     edtIBGE.Text := CEP.IBGE;
     edtGIA.Text := CEP.GIA;
   finally
@@ -92,7 +92,7 @@ end;
   "bairro": "Sé",
   "localidade": "São Paulo",
   "uf": "SP",
-  "unidade": "",
+  "ddd": "",
   "ibge": "3550308",
   "gia": "1004"
 }
