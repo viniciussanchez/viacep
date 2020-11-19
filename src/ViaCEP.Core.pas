@@ -45,6 +45,7 @@ begin
   FIdHTTP := TIdHTTP.Create;
   FIdSSLIOHandlerSocketOpenSSL := TIdSSLIOHandlerSocketOpenSSL.Create;
   FIdHTTP.IOHandler := FIdSSLIOHandlerSocketOpenSSL;
+  FIdSSLIOHandlerSocketOpenSSL.SSLOptions.SSLVersions := [sslvTLSv1, sslvTLSv1_1, sslvTLSv1_2];
 end;
 
 function TViaCEP.Get(const ACep: string): TViaCEPClass;
