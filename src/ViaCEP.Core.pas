@@ -16,7 +16,7 @@ type
     ///   Refers to the CEP that will be consulted.
     /// </param>
     /// <returns>
-    ///   Returns an instance of the TCEPClass class.
+    ///   Returns an instance of the TCEPClass class or raises an exception if not found.
     /// </returns>
     function Get(const ACep: string): TViaCEPClass;
     /// <summary>
@@ -51,7 +51,6 @@ end;
 function TViaCEP.Get(const ACep: string): TViaCEPClass;
 const
   URL = 'https://viacep.com.br/ws/%s/json';
-  INVALID_CEP = '{'#$A'  "erro": true'#$A'}';
 var
   LResponse: TStringStream;
 begin
@@ -59,8 +58,15 @@ begin
   LResponse := TStringStream.Create;
   try
     FIdHTTP.Get(Format(URL, [ACep.Trim]), LResponse);
-    if (FIdHTTP.ResponseCode = 200) and (not (LResponse.DataString).Equals(INVALID_CEP)) then
-      Result := TJson.JsonToObject<TViaCEPClass>(UTF8ToString(PAnsiChar(AnsiString(LResponse.DataString))));
+    if FIdHTTP.ResponseCode = 200 then
+    begin
+      if LResponse.DataString.Contains('"erro": true') then
+        raise Exception.Create('O CEP informado não foi encontrado.')
+      else
+        Result := TJson.JsonToObject<TViaCEPClass>(UTF8ToString(PAnsiChar(AnsiString(LResponse.DataString))));
+    end
+    else
+      raise Exception.Create('Erro ao consultar o CEP. Código HTTP: ' + FIdHTTP.ResponseCode.ToString);
   finally
     LResponse.Free;
   end;
